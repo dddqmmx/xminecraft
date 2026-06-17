@@ -1,0 +1,706 @@
+   Compiling xminecraft v0.1.0 (/home/dddqmmx/project/xminecraft)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.97s
+     Running unittests src/lib.rs (target/debug/deps/xminecraft-e0e8b8ccaaf85862)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 64 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (target/debug/deps/xminecraft-8c9b22564468d6d0)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/integration.rs (target/debug/deps/integration-cf201b21cee494a4)
+
+running 1 test
+[2m2026-06-17T10:30:19.674883Z[0m [32m INFO[0m [2mintegration[0m[2m:[0m TARGET TASK: waiting for accept
+[2m2026-06-17T10:30:19.674935Z[0m [32m INFO[0m [2mintegration[0m[2m:[0m APP WRITING
+[2m2026-06-17T10:30:19.674962Z[0m [32m INFO[0m [2mintegration[0m[2m:[0m APP WROTE
+[2m2026-06-17T10:30:19.675309Z[0m [32m INFO[0m [2mxminecraft::proxy::server[0m[2m:[0m accepted Minecraft login [3mprotocol_version[0m[2m=[0m763 [3mserver_address[0m[2m=[0mlocalhost [3mserver_port[0m[2m=[0m25565 [3musername[0m[2m=[0mxminecraft [3muuid[0m[2m=[0m00ee304e-d465-3d08-9e1c-50c192b3492f
+[2m2026-06-17T10:30:19.676419Z[0m [35mTRACE[0m [2mxminecraft::minecraft::play[0m[2m:[0m responding to server keepalive [3mid[0m[2m=[0m1
+[2m2026-06-17T10:30:19.676466Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received non-carrier packet [3mpacket_id[0m[2m=[0m18 [3mbody_len[0m[2m=[0m8
+[2m2026-06-17T10:30:19.727411Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:19.777444Z[0m [34mDEBUG[0m [2mrustls::client::hs[0m[2m:[0m No cached session for DnsName("localhost")
+[2m2026-06-17T10:30:19.777482Z[0m [34mDEBUG[0m [2mrustls::client::hs[0m[2m:[0m Not resuming any session
+[2m2026-06-17T10:30:19.802909Z[0m [35mTRACE[0m [2mrustls::client::hs[0m[2m:[0m Sending ClientHello Message {
+    version: TLSv1_0,
+    payload: Handshake {
+        parsed: HandshakeMessagePayload(
+            ClientHello(
+                ClientHelloPayload {
+                    client_version: TLSv1_2,
+                    random: 737ca959c912ee6698d723f59f47bd528483ea7bc19a11d1b0993223ccb41d85,
+                    session_id: fdcee55522606cba79d2ead92c642250a0f905fcac2b631fd3ace94337210964,
+                    cipher_suites: [
+                        TLS13_AES_256_GCM_SHA384,
+                        TLS13_AES_128_GCM_SHA256,
+                        TLS13_CHACHA20_POLY1305_SHA256,
+                        TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
+                        TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
+                        TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,
+                        TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
+                        TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
+                        TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,
+                        TLS_EMPTY_RENEGOTIATION_INFO_SCSV,
+                    ],
+                    compression_methods: [
+                        Null,
+                    ],
+                    extensions: ClientExtensions {
+                        server_name: SingleDnsName(
+                            DnsName(
+                                "localhost",
+                            ),
+                        ),
+                        certificate_status_request: Ocsp(
+                            OcspCertificateStatusRequest {
+                                responder_ids: [],
+                                extensions: ,
+                            },
+                        ),
+                        named_groups: [
+                            X25519MLKEM768,
+                            X25519,
+                            secp256r1,
+                            secp384r1,
+                        ],
+                        ec_point_formats: SupportedEcPointFormats {
+                            uncompressed: true,
+                        },
+                        signature_schemes: [
+                            ECDSA_NISTP384_SHA384,
+                            ECDSA_NISTP256_SHA256,
+                            ECDSA_NISTP521_SHA512,
+                            ED25519,
+                            RSA_PSS_SHA512,
+                            RSA_PSS_SHA384,
+                            RSA_PSS_SHA256,
+                            RSA_PKCS1_SHA512,
+                            RSA_PKCS1_SHA384,
+                            RSA_PKCS1_SHA256,
+                        ],
+                        extended_master_secret_request: (),
+                        session_ticket: Request,
+                        supported_versions: SupportedProtocolVersions {
+                            tls13: true,
+                            tls12: true,
+                        },
+                        preshared_key_modes: PskKeyExchangeModes {
+                            psk_dhe: true,
+                            psk: false,
+                        },
+                        key_shares: [
+                            KeyShareEntry {
+                                group: X25519MLKEM768,
+                                payload: bb70859432ac21980dc45a2931a2b31be68a8f34730ec285b7c32bb51882a7f129d3b94a24cc15acd7c5f7724edd669841f92a9f739d9fd23e51fc38d5844895296248c4512c51324a3413cc557dc36a72984558d558a1a48116c8c8cf199631eb3c7f1c7a88e0ca34ac7311a2f652418ca60126881e44979fc144d91674ae40160dc929ed936a00369aaac53718e939db5a55d9262345c8595843577d5c483c10bf58e8a5f56724cffb322a8617a6735814881c04d145594b8ef7662288b7c1ad4cb61ad006d4d78354463e6785a4377c5eba9579caa5b7ca4467ace3b4fa6195d0fbccf58405cb981cab964bf804b4e89245a73b79a16b47131c2d3984457ec116b537c947194353f98d14a65aef7a7e498964c257375767588713030bd7c246984ce016621f5a26130aa0ac311f044c6a6c96b5123998ab1bb4c8725d77a413d7554ddd4a40f0f2a1356614e0d80a2bb4c1d3e404ea087e7d050cefe2a12fe69b8889a1ade6b86f833deaaa59aba8860d10023155cc0616898c12074a0467f7239028e54e81b9ad2d37b24ba00a0b192e507857bc4a07eaa305f350a510c1b557a6986c312ebfb46c7b2bad08bc942dbca979275f23733d2255a3a81b1fb9a64651b1b79453893e7108f41283ae206894b79eb8d06714d741077469040b09130756affac176caab629141f59497030b8287145a05a7252b0bd03b5c2a12896275e0c4da36c827283c2c14cb342b10748b8570114d71b07dfeac62c2b6081a39232f72c566a137b58754631c940c751ddbe442bbf1cb8377b31a058336527f2bb1885aa7cac9e5c7a261a43c84cef4118e1b07328604944fc3530672b2cf976f4e038ea38a656a2b573f30ccf0f87b0fa34f731abb87a28cbfb59cb6846c615aa9d0b68ba5f238ff776443887be375377f602a15150db0e6ab347a840cf8a175977941c410b11a601cbc30c4405623e18da2a38c25b2704ddca9d75a373ffa80132944e0c456f91878b14841998843faf9bd45330a6893645c935c7fa77b11a949b99b5f29d6542c10a433f22d0dfab3b0bc556097618a12a87fb49e067817492c0628a931e91bc2afc149607ca8bed8bf082366e8a9b88958214c884f1166245995ae24a537ae556a367a396b25122b8c4c20979b26f48762a0a02f21645829a7e6a389599243f3975ccfc8a8a3014d1489a00da59e466008842276fc3a3f25fb68615195af3c9e74eb222e07992686add6fac786f52def0728f0b3b70e7b3e91706338043bc8d1bc03c5018aa541330776c73a257c81c876823a2ee832aa988ef76a9cd8633533578ab2bbbe9d82036fb033c42379a1108420670c0a2122c1916201a2ae5bb9a44a327d3fb99388255a7253b566ca11df9c4f3ab4589a85bec3a651164c99d479103538161b163de4863fd1e163c05402c7b6a648460804f27ab5b0cfa788627e17befc88bd0e0c5dbb013204367b939bb61af03dd882481d411c669a0e17599476741e4fd8abf91209e41b90358181ccb70c4125484ab55a5c678eba294efaaa5075e839acb4ce34c05856c6bda9232d7605040b038e4ba7725b59bd0a46922a506417b746ba5748ccf87c643292a8bb386d77976d12aecfdf74cc84803994f2a3ec734e02050855dc896205dbd172dda1e1a365c6a94d11463a3ee4bc4ef21ed0742f5390f03fe40d3973519cbec363b5a7cf3644f43d,
+                            },
+                            KeyShareEntry {
+                                group: X25519,
+                                payload: 11463a3ee4bc4ef21ed0742f5390f03fe40d3973519cbec363b5a7cf3644f43d,
+                            },
+                        ],
+                        order_seed: 38534,
+                        contiguous_extensions: [],
+                        ..
+                    },
+                },
+            ),
+        ),
+        encoded: 010005ab0303737ca959c912ee6698d723f59f47bd528483ea7bc19a11d1b0993223ccb41d8520fdcee55522606cba79d2ead92c642250a0f905fcac2b631fd3ace943372109640014130213011303c02cc02bcca9c030c02fcca800ff0100054e002b000504030403030017000000230000000a000a000811ec001d00170018002d00020101000500050100000000003304ea04e811ec04c0bb70859432ac21980dc45a2931a2b31be68a8f34730ec285b7c32bb51882a7f129d3b94a24cc15acd7c5f7724edd669841f92a9f739d9fd23e51fc38d5844895296248c4512c51324a3413cc557dc36a72984558d558a1a48116c8c8cf199631eb3c7f1c7a88e0ca34ac7311a2f652418ca60126881e44979fc144d91674ae40160dc929ed936a00369aaac53718e939db5a55d9262345c8595843577d5c483c10bf58e8a5f56724cffb322a8617a6735814881c04d145594b8ef7662288b7c1ad4cb61ad006d4d78354463e6785a4377c5eba9579caa5b7ca4467ace3b4fa6195d0fbccf58405cb981cab964bf804b4e89245a73b79a16b47131c2d3984457ec116b537c947194353f98d14a65aef7a7e498964c257375767588713030bd7c246984ce016621f5a26130aa0ac311f044c6a6c96b5123998ab1bb4c8725d77a413d7554ddd4a40f0f2a1356614e0d80a2bb4c1d3e404ea087e7d050cefe2a12fe69b8889a1ade6b86f833deaaa59aba8860d10023155cc0616898c12074a0467f7239028e54e81b9ad2d37b24ba00a0b192e507857bc4a07eaa305f350a510c1b557a6986c312ebfb46c7b2bad08bc942dbca979275f23733d2255a3a81b1fb9a64651b1b79453893e7108f41283ae206894b79eb8d06714d741077469040b09130756affac176caab629141f59497030b8287145a05a7252b0bd03b5c2a12896275e0c4da36c827283c2c14cb342b10748b8570114d71b07dfeac62c2b6081a39232f72c566a137b58754631c940c751ddbe442bbf1cb8377b31a058336527f2bb1885aa7cac9e5c7a261a43c84cef4118e1b07328604944fc3530672b2cf976f4e038ea38a656a2b573f30ccf0f87b0fa34f731abb87a28cbfb59cb6846c615aa9d0b68ba5f238ff776443887be375377f602a15150db0e6ab347a840cf8a175977941c410b11a601cbc30c4405623e18da2a38c25b2704ddca9d75a373ffa80132944e0c456f91878b14841998843faf9bd45330a6893645c935c7fa77b11a949b99b5f29d6542c10a433f22d0dfab3b0bc556097618a12a87fb49e067817492c0628a931e91bc2afc149607ca8bed8bf082366e8a9b88958214c884f1166245995ae24a537ae556a367a396b25122b8c4c20979b26f48762a0a02f21645829a7e6a389599243f3975ccfc8a8a3014d1489a00da59e466008842276fc3a3f25fb68615195af3c9e74eb222e07992686add6fac786f52def0728f0b3b70e7b3e91706338043bc8d1bc03c5018aa541330776c73a257c81c876823a2ee832aa988ef76a9cd8633533578ab2bbbe9d82036fb033c42379a1108420670c0a2122c1916201a2ae5bb9a44a327d3fb99388255a7253b566ca11df9c4f3ab4589a85bec3a651164c99d479103538161b163de4863fd1e163c05402c7b6a648460804f27ab5b0cfa788627e17befc88bd0e0c5dbb013204367b939bb61af03dd882481d411c669a0e17599476741e4fd8abf91209e41b90358181ccb70c4125484ab55a5c678eba294efaaa5075e839acb4ce34c05856c6bda9232d7605040b038e4ba7725b59bd0a46922a506417b746ba5748ccf87c643292a8bb386d77976d12aecfdf74cc84803994f2a3ec734e02050855dc896205dbd172dda1e1a365c6a94d11463a3ee4bc4ef21ed0742f5390f03fe40d3973519cbec363b5a7cf3644f43d001d002011463a3ee4bc4ef21ed0742f5390f03fe40d3973519cbec363b5a7cf3644f43d000b000201000000000e000c0000096c6f63616c686f7374000d001600140503040306030807080608050804060105010401,
+    },
+}
+[2m2026-06-17T10:30:19.803512Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:19.803594Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:19.803613Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:19.854785Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:19.854908Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:19.854929Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:19.906244Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:19.906368Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:19.906393Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:19.956796Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:19.956922Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:19.956941Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.008179Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.008296Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.008314Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.059490Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.059640Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.059659Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.110935Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.111096Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.111115Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.162446Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.162588Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.162614Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.213907Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.214086Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.214112Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.265363Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.265486Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.265509Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.316791Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.316909Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.316928Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.368070Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.368176Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.368192Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.419403Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.419535Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.419573Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.471082Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.471613Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.471662Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.522979Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.523101Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.523119Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.574352Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.574486Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.574505Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.625662Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.625788Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.625808Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.677069Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.677202Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.677230Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.728619Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.729237Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.729337Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.779647Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.779786Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.779806Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.831074Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.831225Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.831246Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.882442Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.882740Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.882776Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.934115Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.934273Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.934294Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:20.984555Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:20.984686Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:20.984706Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.036015Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.036154Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.036180Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.087476Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.087623Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.087642Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.138814Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.138924Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.138941Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.190198Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.190309Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.190326Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.240566Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.240684Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.240702Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.291960Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.292070Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.292092Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.343361Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.343489Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.343509Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.394695Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.394853Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.394873Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.446126Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.446258Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.446290Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.496621Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.496789Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.496808Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.548134Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.548270Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.548289Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.598570Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.598763Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.598803Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.650102Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.650338Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.650373Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.700686Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.700825Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.700843Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.752250Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.752372Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.752391Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.802704Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.802830Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.802855Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.854061Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.854177Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.854196Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.905350Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.905468Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.905488Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:21.956716Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:21.956836Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:21.956854Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.008285Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.008506Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.008532Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.059820Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.059982Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.060006Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.111234Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.111365Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.111386Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.161547Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.161694Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.161714Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.213057Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.213302Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.213344Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.263698Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.263821Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.263842Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.315117Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.315238Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.315255Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.366564Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.366692Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.366710Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.417905Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.418023Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.418041Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.469282Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.469402Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.469421Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.519708Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.519886Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.519922Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.571205Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.571372Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.571406Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.621785Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.622048Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.622085Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.673260Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.673438Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.673459Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.723817Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.724091Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.724137Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.775532Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.775787Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.775834Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.827144Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.827269Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.827287Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.877547Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.877671Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.877689Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.928846Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.928963Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.928983Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:22.980363Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:22.980571Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:22.980605Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.031910Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.032026Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.032045Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.083359Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.083474Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.083493Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.134787Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.134920Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.134943Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.186139Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.186287Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.186306Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.236635Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.236778Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.236798Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.288118Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.288355Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.288380Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.338691Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.338858Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.338885Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.390242Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.390414Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.390435Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.440610Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.440737Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.440756Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.492212Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.492436Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.492461Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.542753Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.542878Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.542896Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.594227Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.594340Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.594358Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.644694Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.644800Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.644817Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.696084Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.696205Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.696224Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.746629Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.746754Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.746782Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.798060Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.798167Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.798184Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.849441Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.849550Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.849567Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.900859Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.901011Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.901034Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:23.952195Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:23.952335Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:23.952355Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.002644Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.002791Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.002810Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.054079Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.054198Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.054216Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.104584Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.104710Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.104735Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.156138Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.156408Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.156447Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.206740Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.206928Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.206968Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.258266Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.258394Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.258412Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.308705Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.308828Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.308847Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.360211Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.360325Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.360343Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.411537Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.411662Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.411681Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.462843Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.463050Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.463070Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.514445Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.514674Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.514705Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.566029Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.566149Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.566166Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.617422Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.617566Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.617585Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.668939Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.669077Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.669095Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.720253Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.720374Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.720393Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.770650Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.770774Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.770791Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.822129Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.822261Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.822281Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.872609Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.872742Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.872767Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.924069Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.924177Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.924200Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:24.975456Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:24.975635Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:24.975658Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.026975Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.027096Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.027115Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.078380Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.078507Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.078526Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.129792Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.129921Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.129940Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.181249Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.181354Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.181372Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.232569Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.232722Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.232741Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.284032Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.284158Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.284183Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.335510Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.335682Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.335711Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.387047Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.387170Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.387189Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.438448Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.438569Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.438587Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.489785Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.489927Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.489947Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.541420Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.541624Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.541652Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.593004Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.593141Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.593163Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.644548Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.644735Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.644770Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.696035Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.696146Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.696163Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.747326Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.747453Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.747473Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.798743Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.799029Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.799055Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.850346Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.850530Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.850557Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.901869Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.902030Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.902050Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:25.953339Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:25.953482Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:25.953503Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.004751Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.004893Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.004921Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.056346Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.056677Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.056721Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.108027Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.108161Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.108181Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.159765Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.160107Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.160143Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.211514Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.211662Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.211681Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.262926Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.263170Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.263198Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.314471Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.314597Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.314617Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.365908Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.366038Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.366058Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.417367Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.417504Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.417531Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.468876Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.469032Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.469050Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.520216Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.520340Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.520359Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.570652Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.570804Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.570822Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.622295Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.622715Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.622793Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.674088Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.674209Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.674229Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.725564Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.725685Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.725705Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.776884Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.777023Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.777044Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.828514Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.829105Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.829170Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.880542Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.880745Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.880770Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.932191Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.932332Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.932359Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:26.982709Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:26.982844Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:26.982864Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.034015Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.034143Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.034161Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.085499Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.085627Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.085649Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.136995Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.137124Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.137145Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.188424Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.188570Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.188595Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.239883Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.240030Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.240049Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.291210Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.291336Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.291354Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.342541Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.342689Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.342709Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.394070Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.394197Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.394217Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.445554Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.445687Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.445708Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.496983Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.497198Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.497220Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.548475Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.548596Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.548613Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.599798Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.599950Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.599975Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.651344Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.651474Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.651494Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.702846Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.702998Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.703019Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.754376Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.754516Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.754536Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.805857Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.805985Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.806007Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.857240Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.857364Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.857384Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.907676Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.907800Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.907819Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:27.959249Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:27.959377Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:27.959401Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.009718Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.009860Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.009886Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.061116Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.061229Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.061248Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.112409Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.112551Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.112569Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.163885Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.164021Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.164040Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.215296Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.215412Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.215430Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.265699Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.265824Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.265842Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.317108Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.317243Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.317269Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.368552Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.368732Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.368769Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.420091Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.420211Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.420230Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.471551Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.471670Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.471688Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.523040Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.523162Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.523181Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.574514Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.574654Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.574673Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.625926Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.626062Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.626080Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.677399Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.677578Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.677598Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.729086Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.729324Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.729371Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.779729Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.779899Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.779937Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.831181Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.831305Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.831323Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.882557Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.882705Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.882726Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.934032Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.934196Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.934215Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:28.985514Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:28.985747Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:28.985784Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.037090Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.037266Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.037285Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.087568Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.087731Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.087759Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.138947Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.139125Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.139151Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.190435Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.190603Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.190627Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.241897Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.242047Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.242076Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.293372Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.293493Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.293517Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.344830Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.344988Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.345020Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.396203Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.396373Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.396395Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.446850Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.447095Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.447120Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.498617Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.498997Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.499051Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.550356Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.550484Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.550505Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.601786Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.601921Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.601942Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+[2m2026-06-17T10:30:29.653107Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m sending carrier frame [3mflags[0m[2m=[0m0 [3mpayload_len[0m[2m=[0m0 [3msignal_count[0m[2m=[0m1
+[2m2026-06-17T10:30:29.653233Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m received carrier signal [3msignal[0m[2m=[0mChunkLoad(ChunkLoadSignal { chunk_x: 1481458481, chunk_z: 0 })
+[2m2026-06-17T10:30:29.653252Z[0m [35mTRACE[0m [2mxminecraft::carrier::io[0m[2m:[0m decoded carrier frame [3mframe[0m[2m=[0mData([])
+
+thread 'integration_full_stack_vless_tls_minecraft' (284951) panicked at tests/integration.rs:292:6:
+Test timed out: Elapsed(())
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test integration_full_stack_vless_tls_minecraft ... FAILED
+
+failures:
+
+failures:
+    integration_full_stack_vless_tls_minecraft
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 1 filtered out; finished in 10.00s
+
+error: test failed, to rerun pass `--test integration`
