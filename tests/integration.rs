@@ -71,10 +71,7 @@ async fn integration_1to1_replica_vpn_traffic_simulation() {
                 rsa_key: xminecraft::test_support::test_rsa_key().clone(),
             },
             vless_id,
-            tls: ServerTlsOptions {
-                cert: fixture.cert.clone(),
-                key: fixture.key.clone(),
-            },
+            tls: ServerTlsOptions::new(&fixture.cert, &fixture.key).unwrap(),
         };
         let server_main_task = tokio::spawn(async move {
             while let Ok((tunnel, _)) = tunnel_listener.accept().await {
@@ -98,10 +95,7 @@ async fn integration_1to1_replica_vpn_traffic_simulation() {
             }),
 
             vless_id,
-            tls: ClientTlsOptions {
-                ca_cert: fixture.cert.clone(),
-                server_name: "localhost".to_owned(),
-            },
+            tls: ClientTlsOptions::new(&fixture.cert, "localhost".to_owned()).unwrap(),
         };
         let client_main_task = tokio::spawn(async move {
             while let Ok((raw, _)) = local_listener.accept().await {
@@ -170,10 +164,7 @@ async fn integration_full_stack_vless_tls_minecraft() {
                 rsa_key: xminecraft::test_support::test_rsa_key().clone(),
             },
             vless_id,
-            tls: ServerTlsOptions {
-                cert: fixture.cert.clone(),
-                key: fixture.key.clone(),
-            },
+            tls: ServerTlsOptions::new(&fixture.cert, &fixture.key).unwrap(),
         };
 
         let server_task = tokio::spawn(async move {
@@ -196,10 +187,7 @@ async fn integration_full_stack_vless_tls_minecraft() {
             }),
 
             vless_id,
-            tls: ClientTlsOptions {
-                ca_cert: fixture.cert.clone(),
-                server_name: "localhost".to_owned(),
-            },
+            tls: ClientTlsOptions::new(&fixture.cert, "localhost".to_owned()).unwrap(),
         };
 
         let client_task = tokio::spawn(async move {

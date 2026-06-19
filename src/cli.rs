@@ -170,10 +170,7 @@ pub async fn run() -> Result<()> {
                 target,
                 preamble,
                 vless_id: cli.vless_id,
-                tls: ClientTlsOptions {
-                    ca_cert: tls_ca_cert,
-                    server_name: tls_server_name,
-                },
+                tls: ClientTlsOptions::new(&tls_ca_cert, tls_server_name)?,
             })
             .await
         }
@@ -233,10 +230,7 @@ pub async fn run() -> Result<()> {
                 expect_preamble: !cli.no_preamble,
                 profile,
                 vless_id: cli.vless_id,
-                tls: ServerTlsOptions {
-                    cert: tls_cert,
-                    key: tls_key,
-                },
+                tls: ServerTlsOptions::new(&tls_cert, &tls_key)?,
             })
             .await
         }

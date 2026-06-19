@@ -1,6 +1,6 @@
 use std::fs::File;
 use std::io::BufReader;
-use std::path::{Path, PathBuf};
+use std::path::Path;
 use std::sync::Arc;
 
 use anyhow::{Context, Result, anyhow, bail};
@@ -13,22 +13,35 @@ use tokio_rustls::client::TlsStream as ClientTlsStream;
 use tokio_rustls::server::TlsStream as ServerTlsStream;
 use tokio_rustls::{TlsAcceptor, TlsConnector};
 
-#[derive(Debug, Clone)]
+#[derive(Clone)]
 pub struct ClientTlsOptions {
-    pub ca_cert: PathBuf,
+    pub connector: TlsConnector,
     pub server_name: String,
 }
 
-#[derive(Debug, Clone)]
+impl std::fmt::Debug for ClientTlsOptions {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("ClientTlsOptions")
+            .field("server_name", &self.server_name)
+            .finish()
+    }
+}
+
+#[derive(Clone)]
 pub struct ServerTlsOptions {
-    pub cert: PathBuf,
-    pub key: PathBuf,
+    pub acceptor: TlsAcceptor,
+}
+
+impl std::fmt::Debug for ServerTlsOptions {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("ServerTlsOptions").finish()
+    }
 }
 
 impl ClientTlsOptions {
-    pub fn load_connector(&self) -> Result<TlsConnector> {
+    pub fn new(ca_cert: &Path, server_name: String) -> Result<Self> {
         let mut roots = RootCertStore::empty();
-        for cert in load_certs(&self.ca_cert)? {
+        for cert in load_certs(ca_cert)? {
             roots
                 .add(cert)
                 .map_err(|err| anyhow!("adding CA certificate failed: {err}"))?;
@@ -38,18 +51,20 @@ impl ClientTlsOptions {
             .with_root_certificates(roots)
             .with_no_client_auth();
 
-        Ok(TlsConnector::from(Arc::new(config)))
+        Ok(Self {
+            connector: TlsConnector::from(Arc::new(config)),
+            server_name,
+        })
     }
 
     pub async fn connect<S>(&self, stream: S) -> Result<ClientTlsStream<S>>
     where
         S: AsyncRead + AsyncWrite + Unpin,
     {
-        let connector = self.load_connector()?;
         let server_name = ServerName::try_from(self.server_name.clone())
             .with_context(|| format!("invalid TLS server name {}", self.server_name))?;
 
-        connector
+        self.connector
             .connect(server_name, stream)
             .await
             .context("performing client TLS handshake")
@@ -57,27 +72,28 @@ impl ClientTlsOptions {
 }
 
 impl ServerTlsOptions {
-    pub fn load_acceptor(&self) -> Result<TlsAcceptor> {
-        let certs = load_certs(&self.cert)?;
+    pub fn new(cert: &Path, key: &Path) -> Result<Self> {
+        let certs = load_certs(cert)?;
         if certs.is_empty() {
             bail!("TLS certificate file contains no certificates");
         }
 
-        let key = load_private_key(&self.key)?;
+        let key_der = load_private_key(key)?;
         let config = RustlsServerConfig::builder()
             .with_no_client_auth()
-            .with_single_cert(certs, key)
+            .with_single_cert(certs, key_der)
             .context("building TLS server config")?;
 
-        Ok(TlsAcceptor::from(Arc::new(config)))
+        Ok(Self {
+            acceptor: TlsAcceptor::from(Arc::new(config)),
+        })
     }
 
     pub async fn accept<S>(&self, stream: S) -> Result<ServerTlsStream<S>>
     where
         S: AsyncRead + AsyncWrite + Unpin,
     {
-        let acceptor = self.load_acceptor()?;
-        acceptor
+        self.acceptor
             .accept(stream)
             .await
             .context("performing server TLS handshake")
@@ -114,14 +130,8 @@ mod tests {
     #[tokio::test]
     async fn tls_handshake_transfers_bytes() {
         let fixture = TlsFixture::new();
-        let server_options = ServerTlsOptions {
-            cert: fixture.cert.clone(),
-            key: fixture.key.clone(),
-        };
-        let client_options = ClientTlsOptions {
-            ca_cert: fixture.cert.clone(),
-            server_name: "localhost".to_owned(),
-        };
+        let server_options = ServerTlsOptions::new(&fixture.cert, &fixture.key).unwrap();
+        let client_options = ClientTlsOptions::new(&fixture.cert, "localhost".to_owned()).unwrap();
         let (client_io, server_io) = duplex(4096);
 
         let server_task = tokio::spawn(async move {
@@ -148,14 +158,9 @@ mod tests {
     #[tokio::test]
     async fn tls_rejects_wrong_server_name() {
         let fixture = TlsFixture::new();
-        let server_options = ServerTlsOptions {
-            cert: fixture.cert.clone(),
-            key: fixture.key.clone(),
-        };
-        let client_options = ClientTlsOptions {
-            ca_cert: fixture.cert.clone(),
-            server_name: "not-localhost".to_owned(),
-        };
+        let server_options = ServerTlsOptions::new(&fixture.cert, &fixture.key).unwrap();
+        let client_options =
+            ClientTlsOptions::new(&fixture.cert, "not-localhost".to_owned()).unwrap();
         let (client_io, server_io) = duplex(4096);
 
         let server_task = tokio::spawn(async move { server_options.accept(server_io).await });
