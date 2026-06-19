@@ -141,3 +141,92 @@ async fn handle_http_connect(stream: &mut TcpStream) -> Result<VlessTarget> {
     let target = parts[1];
     VlessTarget::parse(target)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::net::{IpAddr, Ipv4Addr};
+    use tokio::io::{AsyncReadExt, AsyncWriteExt};
+    use tokio::net::{TcpListener, TcpStream};
+
+    async fn setup_connection() -> (
+        TcpStream,
+        tokio::task::JoinHandle<Result<(VlessTarget, ProxyProtocol)>>,
+    ) {
+        let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let addr = listener.local_addr().unwrap();
+
+        let server_task = tokio::spawn(async move {
+            let (mut stream, _) = listener.accept().await.unwrap();
+            handle_local_handshake(&mut stream).await
+        });
+
+        let client_stream = TcpStream::connect(addr).await.unwrap();
+        (client_stream, server_task)
+    }
+
+    #[tokio::test]
+    async fn test_socks5_ipv4() {
+        let (mut client, server_task) = setup_connection().await;
+
+        // SOCKS5 Greeting
+        client.write_all(&[0x05, 0x01, 0x00]).await.unwrap();
+        let mut resp = [0u8; 2];
+        client.read_exact(&mut resp).await.unwrap();
+        assert_eq!(resp, [0x05, 0x00]);
+
+        // SOCKS5 Connect IPv4 192.168.1.1:80
+        client
+            .write_all(&[0x05, 0x01, 0x00, 0x01, 192, 168, 1, 1, 0, 80])
+            .await
+            .unwrap();
+
+        let result = server_task.await.unwrap().unwrap();
+        assert!(matches!(result.1, ProxyProtocol::Socks5));
+        assert_eq!(
+            result.0.address,
+            VlessAddress::Ip(IpAddr::V4(Ipv4Addr::new(192, 168, 1, 1)))
+        );
+        assert_eq!(result.0.port, 80);
+    }
+
+    #[tokio::test]
+    async fn test_socks5_domain() {
+        let (mut client, server_task) = setup_connection().await;
+
+        client.write_all(&[0x05, 0x01, 0x00]).await.unwrap();
+        let mut resp = [0u8; 2];
+        client.read_exact(&mut resp).await.unwrap();
+
+        // Connect domain google.com:443
+        let domain = b"google.com";
+        let mut req = vec![0x05, 0x01, 0x00, 0x03, domain.len() as u8];
+        req.extend_from_slice(domain);
+        req.extend_from_slice(&[0x01, 0xBB]); // 443
+        client.write_all(&req).await.unwrap();
+
+        let result = server_task.await.unwrap().unwrap();
+        assert!(matches!(result.1, ProxyProtocol::Socks5));
+        assert_eq!(
+            result.0.address,
+            VlessAddress::Domain("google.com".to_string())
+        );
+        assert_eq!(result.0.port, 443);
+    }
+
+    #[tokio::test]
+    async fn test_http_connect() {
+        let (mut client, server_task) = setup_connection().await;
+
+        let req = b"CONNECT target.com:8443 HTTP/1.1\r\nHost: target.com:8443\r\n\r\n";
+        client.write_all(req).await.unwrap();
+
+        let result = server_task.await.unwrap().unwrap();
+        assert!(matches!(result.1, ProxyProtocol::Http));
+        assert_eq!(
+            result.0.address,
+            VlessAddress::Domain("target.com".to_string())
+        );
+        assert_eq!(result.0.port, 8443);
+    }
+}

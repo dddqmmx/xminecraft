@@ -42,3 +42,51 @@ where
 
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::time::Duration;
+    use tokio::io::{AsyncReadExt, AsyncWriteExt, duplex};
+    use tokio::time::timeout;
+
+    #[tokio::test]
+    async fn test_relay_halves_shutdown() {
+        let (mut client, server) = duplex(1024);
+        let (mut target_client, target_server) = duplex(1024);
+
+        let (mut server_read, mut server_write) = tokio::io::split(server);
+        let (mut target_read, mut target_write) = tokio::io::split(target_server);
+
+        let relay_task = tokio::spawn(async move {
+            relay_halves(
+                &mut server_read,
+                &mut server_write,
+                &mut target_read,
+                &mut target_write,
+            )
+            .await
+        });
+
+        // Client writes, target reads
+        client.write_all(b"ping").await.unwrap();
+        let mut buf = [0u8; 4];
+        target_client.read_exact(&mut buf).await.unwrap();
+        assert_eq!(&buf, b"ping");
+
+        // Target writes, client reads
+        target_client.write_all(b"pong").await.unwrap();
+        client.read_exact(&mut buf).await.unwrap();
+        assert_eq!(&buf, b"pong");
+
+        // Client closes the write side (EOF sent to server_read)
+        drop(client);
+
+        // The relay task should return immediately without hanging
+        timeout(Duration::from_secs(1), relay_task)
+            .await
+            .expect("relay_halves hung!")
+            .unwrap()
+            .unwrap();
+    }
+}
