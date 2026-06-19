@@ -1,8 +1,8 @@
-use anyhow::{bail, Result};
+use anyhow::{Result, bail};
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net::TcpStream;
 
-use crate::vless::{VlessTarget, VlessAddress};
+use crate::vless::{VlessAddress, VlessTarget};
 
 pub enum ProxyProtocol {
     Socks5,
@@ -25,7 +25,10 @@ pub async fn handle_local_handshake(
         let target = handle_http_connect(stream).await?;
         Ok((target, ProxyProtocol::Http))
     } else {
-        bail!("unsupported local proxy protocol (not socks5 or http connect), first byte: {:#04x}", buf[0]);
+        bail!(
+            "unsupported local proxy protocol (not socks5 or http connect), first byte: {:#04x}",
+            buf[0]
+        );
     }
 }
 
@@ -130,7 +133,7 @@ async fn handle_http_connect(stream: &mut TcpStream) -> Result<VlessTarget> {
     let header_str = String::from_utf8_lossy(&header);
     let first_line = header_str.lines().next().unwrap_or("");
     let parts: Vec<&str> = first_line.split_whitespace().collect();
-    
+
     if parts.len() < 2 || parts[0] != "CONNECT" {
         bail!("invalid HTTP CONNECT request: {}", first_line);
     }

@@ -18,10 +18,9 @@
 The project implements a layered protocol stack:
 
 1.  **Minecraft Preamble**: Standard handshake, status, and login phases to simulate a real Minecraft server. Supports whitelisting.
-2.  **Carrier Layer (`src/carrier/`)**: Encapsulates binary data frames into common Minecraft play-state packets (e.g., chunk loading, player actions, world time, health, entity spawn, entity move).
-3.  **TLS Layer (`src/tls.rs`)**: Established over the carrier stream to provide confidentiality and integrity.
-4.  **VLESS Layer (`src/vless/`)**: Provides client authentication (via UUID) and target destination routing.
-5.  **Proxy Layer (`src/proxy/`)**: Manages listeners, connection handling, and byte relaying. Includes `local.rs` for dynamic SOCKS5 and HTTP CONNECT proxy protocol sniffing on the client side.
+2.  **TLS Layer (`src/tls.rs`)**: Established over the native Minecraft AES stream to provide confidentiality and integrity.
+3.  **VLESS Layer (`src/vless/`)**: Provides client authentication (via UUID) and target destination routing.
+4.  **Proxy Layer (`src/proxy/`)**: Manages listeners, connection handling, and byte relaying. Includes `local.rs` for dynamic SOCKS5 and HTTP CONNECT proxy protocol sniffing on the client side.
 
 ## Building and Running
 
@@ -55,7 +54,7 @@ The project implements a layered protocol stack:
   - Unit tests are located within module files (e.g., `tests.rs` or `mod tests`).
   - Integration tests are in the `tests/` directory (e.g., `tests/integration.rs`).
   - Use `cargo test` to run all tests with built-in timeouts and extensive coverage of protocol edge cases.
-  - Always verify protocol round-trips when modifying the carrier or packet logic.
+  - Always verify protocol round-trips when modifying packet logic.
 - **Formatting**: Adhere to `cargo fmt` standards.
 
 ## Module Guide
@@ -63,9 +62,8 @@ The project implements a layered protocol stack:
 - `src/main.rs`: Entry point, dispatches to `cli::run()`.
 - `src/cli.rs`: CLI definition, config assembly, and logging initialization.
 - `src/protocol.rs`: Minecraft packet framing and low-level I/O.
-- `src/carrier/`: Logic for packing/unpacking bytes into Minecraft signals (Chunk, PlayerAction, etc.).
 - `src/minecraft/`: Implements the "fake" Minecraft server behavior (Status, Login, Play bootstrap).
-- `src/proxy/`: High-level proxy server and client implementation, including the carrier stream wrapper.
+- `src/proxy/`: High-level proxy server and client implementation.
 - `src/vless/`: VLESS protocol implementation (request/response parsing).
 - `src/tls.rs`: Rustls configuration helpers for client and server.
 - `src/whitelist.rs`: Minecraft whitelist loading and verification logic.

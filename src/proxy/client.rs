@@ -7,7 +7,7 @@ use crate::protocol::{JoinedStream, UpgradedStream, write_client_preamble};
 use crate::vless;
 
 use super::config::ClientConfig;
-use super::local::{handle_local_handshake, ProxyProtocol};
+use super::local::{ProxyProtocol, handle_local_handshake};
 use super::relay::relay_streams;
 
 pub async fn run_client(config: ClientConfig) -> Result<()> {
@@ -86,14 +86,20 @@ pub async fn handle_client_connection(mut raw: TcpStream, config: ClientConfig) 
     if let Some(proto) = proxy_proto {
         match proto {
             ProxyProtocol::Socks5 => {
-                tokio::io::AsyncWriteExt::write_all(&mut raw, &[0x05, 0x00, 0x00, 0x01, 0, 0, 0, 0, 0, 0])
-                    .await
-                    .context("writing socks5 success reply")?;
+                tokio::io::AsyncWriteExt::write_all(
+                    &mut raw,
+                    &[0x05, 0x00, 0x00, 0x01, 0, 0, 0, 0, 0, 0],
+                )
+                .await
+                .context("writing socks5 success reply")?;
             }
             ProxyProtocol::Http => {
-                tokio::io::AsyncWriteExt::write_all(&mut raw, b"HTTP/1.1 200 Connection Established\r\n\r\n")
-                    .await
-                    .context("writing http connect success reply")?;
+                tokio::io::AsyncWriteExt::write_all(
+                    &mut raw,
+                    b"HTTP/1.1 200 Connection Established\r\n\r\n",
+                )
+                .await
+                .context("writing http connect success reply")?;
             }
         }
     }

@@ -51,8 +51,8 @@ VLESS UUID shared by both endpoints:
 uuidgen
 ```
 
-Start the server-side tunnel endpoint. It accepts Minecraft-framed carrier
-traffic on port `25565`, terminates TLS, authenticates the VLESS UUID, and then
+Start the server-side tunnel endpoint. It accepts traffic on port `25565`,
+terminates TLS, authenticates the VLESS UUID, and then
 connects to the target address supplied by the client VLESS request:
 
 ```bash
@@ -99,7 +99,7 @@ ssh -p 1080 user@127.0.0.1
 
 ## Security
 
-The data protocol inside the Minecraft carrier is VLESS over TLS:
+The data protocol inside the Minecraft AES stream is VLESS over TLS:
 
 - TLS provides confidentiality, integrity, replay protection at the record
   layer, and server identity validation through `--tls-ca-cert` plus
