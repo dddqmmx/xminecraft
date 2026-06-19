@@ -4,6 +4,7 @@ use tokio::net::TcpStream;
 
 use crate::vless::{VlessAddress, VlessTarget};
 
+#[derive(Debug)]
 pub enum ProxyProtocol {
     Socks5,
     Http,
@@ -228,5 +229,31 @@ mod tests {
             VlessAddress::Domain("target.com".to_string())
         );
         assert_eq!(result.0.port, 8443);
+    }
+
+    #[tokio::test]
+    async fn test_http_connect_rejects_huge_header() {
+        let (mut client, server_task) = setup_connection().await;
+
+        let req = b"CONNECT target.com:8443 HTTP/1.1\r\n";
+        client.write_all(req).await.unwrap();
+
+        // Write 9000 bytes of 'X'
+        let huge = vec![b'X'; 9000];
+        client.write_all(&huge).await.unwrap();
+
+        let err = server_task.await.unwrap().unwrap_err();
+        assert!(err.to_string().contains("http connect header too large"));
+    }
+
+    #[tokio::test]
+    async fn test_http_connect_rejects_invalid_method() {
+        let (mut client, server_task) = setup_connection().await;
+
+        let req = b"CONNECTX / HTTP/1.1\r\nHost: target.com\r\n\r\n";
+        client.write_all(req).await.unwrap();
+
+        let err = server_task.await.unwrap().unwrap_err();
+        assert!(err.to_string().contains("invalid HTTP CONNECT request"));
     }
 }

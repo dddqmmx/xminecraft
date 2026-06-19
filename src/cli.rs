@@ -253,3 +253,45 @@ fn init_logging() {
     let filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info"));
     tracing_subscriber::fmt().with_env_filter(filter).init();
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::fs::File;
+    use std::io::Write;
+
+    #[test]
+    fn test_load_whitelist() {
+        let temp_dir = std::env::temp_dir();
+        let path = temp_dir.join("test_whitelist.json");
+        let mut file = File::create(&path).unwrap();
+        let json = r#"
+        [
+            {
+                "uuid": "00000000-0000-0000-0000-000000000001",
+                "name": "jeb_"
+            }
+        ]
+        "#;
+        file.write_all(json.as_bytes()).unwrap();
+
+        let users = vec!["Notch".to_string()];
+        let test_uuid = Uuid::parse_str("00000000-0000-0000-0000-000000000002").unwrap();
+        let uuids = vec![test_uuid];
+
+        let whitelist = load_whitelist(Some(path.clone()), users, uuids.clone()).unwrap();
+
+        assert!(whitelist.is_enabled());
+        assert!(whitelist.allows(
+            "Notch",
+            &Uuid::parse_str("00000000-0000-0000-0000-000000000003").unwrap()
+        )); // by name
+        assert!(whitelist.allows("unknown", &test_uuid)); // by cli uuid
+        assert!(whitelist.allows(
+            "jeb_",
+            &Uuid::parse_str("00000000-0000-0000-0000-000000000004").unwrap()
+        )); // from file
+
+        std::fs::remove_file(path).unwrap();
+    }
+}
