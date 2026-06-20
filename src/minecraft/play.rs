@@ -134,3 +134,103 @@ pub async fn accept_keepalive_reply(
 
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::protocol::write_packet;
+    use tokio::sync::mpsc;
+    use valence_protocol::{
+        Encode,
+        packets::play::{KeepAliveC2s, KeepAliveS2c},
+    };
+
+    async fn write_typed<W: AsyncWrite + Unpin, P: Encode + valence_protocol::Packet>(
+        w: &mut W,
+        p: P,
+    ) {
+        let mut body = vec![];
+        p.encode(&mut body).unwrap();
+        write_packet(w, P::ID, &body).await.unwrap();
+    }
+
+    #[tokio::test]
+    async fn test_handle_play_probes_valid_keepalive() {
+        let (mut client, server) = tokio::io::duplex(1024);
+        let (mut server_read, mut server_write) = tokio::io::split(server);
+        let (tx, mut rx) = mpsc::unbounded_channel();
+        let task = tokio::spawn(async move {
+            handle_play_probes(&mut server_read, &mut server_write, 2097151, tx).await
+        });
+        write_typed(&mut client, KeepAliveC2s { id: 12345 }).await;
+        client.write_all(&[0x02, 0x00, 0x00]).await.unwrap();
+        assert_eq!(rx.recv().await.unwrap(), 12345);
+        task.await.unwrap().unwrap();
+    }
+
+    #[tokio::test]
+    async fn test_handle_play_probes_timeout() {
+        let (client, server) = tokio::io::duplex(1024);
+        let (mut server_read, mut server_write) = tokio::io::split(server);
+        let (tx, _rx) = mpsc::unbounded_channel();
+        drop(client);
+        assert!(
+            handle_play_probes(&mut server_read, &mut server_write, 2097151, tx)
+                .await
+                .is_ok()
+        );
+    }
+
+    #[tokio::test]
+    async fn test_drain_server_preamble() {
+        let (mut client, mut server) = tokio::io::duplex(1024);
+        let task = tokio::spawn(async move { drain_server_preamble(&mut server, 2097151).await });
+        write_typed(&mut client, KeepAliveS2c { id: 777 }).await;
+        task.await.unwrap().unwrap();
+    }
+
+    #[tokio::test]
+    async fn test_send_keepalive() {
+        let (mut client, mut server) = tokio::io::duplex(1024);
+        let _id = send_keepalive(&mut server).await.unwrap();
+        let pkt = crate::protocol::read_packet(&mut client, 2097151)
+            .await
+            .unwrap()
+            .unwrap();
+        assert_eq!(pkt.packet_id, KeepAliveS2c::ID);
+    }
+
+    #[tokio::test]
+    async fn test_accept_keepalive_reply() {
+        let (mut client, mut server) = tokio::io::duplex(1024);
+        write_typed(&mut client, KeepAliveC2s { id: 42 }).await;
+        accept_keepalive_reply(&mut server, 42, 2097151)
+            .await
+            .unwrap();
+    }
+
+    #[tokio::test]
+    async fn test_accept_keepalive_reply_wrong() {
+        let (mut client, mut server) = tokio::io::duplex(1024);
+        write_typed(&mut client, KeepAliveC2s { id: 99 }).await;
+        assert!(
+            accept_keepalive_reply(&mut server, 42, 2097151)
+                .await
+                .is_err()
+        );
+        let (mut client, mut server) = tokio::io::duplex(1024);
+        client.write_all(&[0x02, 0x00, 0x00]).await.unwrap();
+        assert!(
+            accept_keepalive_reply(&mut server, 42, 2097151)
+                .await
+                .is_err()
+        );
+        let (client, mut server) = tokio::io::duplex(1024);
+        drop(client);
+        assert!(
+            accept_keepalive_reply(&mut server, 42, 2097151)
+                .await
+                .is_err()
+        );
+    }
+}

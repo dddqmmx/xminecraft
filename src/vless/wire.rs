@@ -190,7 +190,58 @@ where
 }
 
 #[cfg(test)]
-pub(super) mod test_constants {
-    pub(crate) const COMMAND_TCP: u8 = super::COMMAND_TCP;
-    pub(crate) const ADDRESS_DOMAIN: u8 = super::ADDRESS_DOMAIN;
+mod tests_additional {
+    use super::*;
+    use crate::vless::types::{VlessAddress, VlessId};
+    use std::io::Cursor;
+
+    #[tokio::test]
+    async fn test_wire_errors() {
+        let id = VlessId::parse("5783a3e7-e373-51cd-8642-c83782b807c5").unwrap();
+        let mut cursor = Cursor::new(vec![ADDRESS_DOMAIN, 0]);
+        assert!(
+            read_address(&mut cursor)
+                .await
+                .unwrap_err()
+                .to_string()
+                .contains("must not be empty")
+        );
+        let mut out = vec![];
+        assert!(encode_address(&mut out, &VlessAddress::Domain("a".repeat(256))).is_err());
+        let mut cursor = Cursor::new(vec![ADDRESS_DOMAIN, 3, 230, 136, 145]);
+        assert!(
+            read_address(&mut cursor)
+                .await
+                .unwrap_err()
+                .to_string()
+                .contains("ASCII")
+        );
+        let mut cursor = Cursor::new(vec![99]);
+        assert!(
+            read_address(&mut cursor)
+                .await
+                .unwrap_err()
+                .to_string()
+                .contains("unsupported VLESS address type")
+        );
+        let mut req = vec![VERSION];
+        req.extend_from_slice(&id.as_bytes());
+        req.extend_from_slice(&[0, COMMAND_TCP, 0, 0, ADDRESS_IPV4, 127, 0, 0, 1]);
+        assert!(
+            read_request(&mut Cursor::new(req), id)
+                .await
+                .unwrap_err()
+                .to_string()
+                .contains("greater than zero")
+        );
+        let res = vec![1, 0];
+        assert!(
+            read_response(&mut Cursor::new(res))
+                .await
+                .unwrap_err()
+                .to_string()
+                .contains("unexpected VLESS response version")
+        );
+        discard_exact(&mut Cursor::new(vec![]), 0).await.unwrap();
+    }
 }

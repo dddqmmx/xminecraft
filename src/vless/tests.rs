@@ -2,7 +2,8 @@ use tokio::io::{AsyncWriteExt, duplex};
 
 use super::types::{VlessId, VlessTarget};
 use super::wire::VERSION;
-use super::wire::test_constants::{ADDRESS_DOMAIN, COMMAND_TCP};
+const ADDRESS_DOMAIN: u8 = 2;
+const COMMAND_TCP: u8 = 1;
 use super::*;
 
 #[test]

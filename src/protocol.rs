@@ -523,3 +523,70 @@ mod tests {
         assert!(read_packet(&mut reader, 10).await.is_err());
     }
 }
+#[cfg(test)]
+mod tests_additional {
+    use super::*;
+    use std::io::Cursor;
+
+    #[tokio::test]
+    async fn test_protocol_errors() {
+        // String too large
+        let mut out = vec![];
+        assert!(encode_string(&"a".repeat(32768), &mut out).is_err());
+
+        let cur = Cursor::new(vec![255, 255, 3]);
+        let cur_slice = cur.into_inner();
+        let mut slice = cur_slice.as_slice();
+        assert!(
+            decode_string(&mut slice)
+                .unwrap_err()
+                .to_string()
+                .contains("exceeds limit")
+        );
+
+        // Oversized packet
+        let mut cur = Cursor::new(vec![255, 255, 255, 127]);
+        assert!(
+            read_packet(&mut cur, 1024)
+                .await
+                .unwrap_err()
+                .to_string()
+                .contains("exceeds limit")
+        );
+
+        // Negative packet length
+        let mut cur = Cursor::new(vec![255, 255, 255, 255, 15]);
+        assert!(
+            read_packet(&mut cur, 1024)
+                .await
+                .unwrap_err()
+                .to_string()
+                .contains("negative Minecraft packet length")
+        );
+
+        // Empty packet
+        let mut cur = Cursor::new(vec![]);
+        assert!(read_packet(&mut cur, 1024).await.unwrap().is_none());
+
+        // Handshake wrong packet id
+        let mut p = vec![];
+        write_packet(&mut p, 99, &[]).await.unwrap();
+        assert!(read_handshake(&mut Cursor::new(p), 1024).await.is_err());
+
+        // Login identity wrong id
+        let mut p = vec![];
+        write_packet(&mut p, 99, &[]).await.unwrap();
+        assert!(
+            read_login_identity(&mut Cursor::new(p), 1024)
+                .await
+                .is_err()
+        );
+
+        // VarInt EOF
+        assert!(
+            read_varint_from_stream(&mut Cursor::new(vec![128]))
+                .await
+                .is_err()
+        );
+    }
+}

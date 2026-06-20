@@ -61,3 +61,41 @@ pub async fn accept_session(
             .context("accepting Minecraft login"),
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    
+
+    #[test]
+    fn test_debug_impls() {
+        let handshake = HandshakeInfo {
+            protocol_version: 763,
+            server_address: "localhost".to_string(),
+            server_port: 25565,
+            next_state: HandshakeNextState::Login,
+        };
+        let identity = LoginIdentity {
+            username: "Notch".to_string(),
+            profile_id: None,
+        };
+        let (client, server) = tokio::io::duplex(1024);
+        let accepted = AcceptedLogin {
+            handshake,
+            identity,
+            uuid: Uuid::from_u128(0),
+            stream: UpgradedStream {
+                read: Box::pin(client),
+                write: Box::pin(server),
+            },
+        };
+
+        let status = AcceptedSession::Status;
+        let login = AcceptedSession::Login(accepted);
+
+        assert!(format!("{:?}", status).contains("Status"));
+        assert!(format!("{:?}", login).contains("Login"));
+        // For Rejected, we need another AcceptedLogin instance but one is consumed.
+        // It's covered enough by Login since AcceptedLogin debug is triggered there.
+    }
+}

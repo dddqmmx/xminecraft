@@ -106,3 +106,41 @@ pub async fn handle_client_connection(mut raw: TcpStream, config: ClientConfig) 
 
     relay_streams(raw, tls_encrypted_stream).await
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::test_support::TlsFixture;
+    use crate::tls::ClientTlsOptions;
+    use std::time::Duration;
+    use tokio::net::TcpStream;
+
+    #[tokio::test]
+    async fn test_run_client_accepts_and_fails_gracefully() {
+        let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let port = listener.local_addr().unwrap().port();
+        drop(listener);
+
+        let config = ClientConfig {
+            listen: format!("127.0.0.1:{}", port),
+            tunnel: "127.0.0.1:1".to_string(), // dummy
+            target: Some(crate::vless::VlessTarget::parse("127.0.0.1:80").unwrap()),
+            preamble: None,
+            vless_id: crate::vless::VlessId::parse("5783a3e7-e373-51cd-8642-c83782b807c5").unwrap(),
+            tls: ClientTlsOptions::new(&TlsFixture::new().cert, "localhost".to_string()).unwrap(),
+        };
+
+        let task = tokio::spawn(run_client(config));
+
+        // Wait for listener to bind
+        tokio::time::sleep(Duration::from_millis(50)).await;
+
+        // Connect and drop to simulate client
+        let _ = TcpStream::connect(format!("127.0.0.1:{}", port))
+            .await
+            .unwrap();
+
+        tokio::time::sleep(Duration::from_millis(50)).await;
+        task.abort();
+    }
+}
