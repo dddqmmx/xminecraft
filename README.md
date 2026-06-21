@@ -160,7 +160,7 @@ Minecraft format:
 
 When a whitelist is configured, non-matching login attempts receive a
 `Login Disconnect` packet with `--whitelist-message` and never reach TLS/VLESS
-handling. If no whitelist source is configured, login remains open.
+handling. By default, if no whitelist source is configured, all login attempts are rejected.
 
 ```bash
 server --brand xminecraft --entity-id 1 --spawn-y 64

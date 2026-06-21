@@ -17,7 +17,7 @@
 
 The project implements a layered protocol stack:
 
-1.  **Minecraft Preamble**: Standard handshake, status, and login phases to simulate a real Minecraft server. Supports whitelisting.
+1.  **Minecraft Preamble**: Standard handshake, status, and login phases to simulate a real Minecraft server. Supports whitelisting (default-deny for probe resistance).
 2.  **TLS Layer (`src/tls.rs`)**: Established over the native Minecraft AES stream to provide confidentiality and integrity.
 3.  **VLESS Layer (`src/vless/`)**: Provides client authentication (via UUID) and target destination routing.
 4.  **Proxy Layer (`src/proxy/`)**: Manages listeners, connection handling, and byte relaying. Includes `local.rs` for dynamic SOCKS5 and HTTP CONNECT proxy protocol sniffing on the client side.

@@ -84,6 +84,7 @@ cargo test integration_1to1_replica_vpn_traffic_simulation -- --nocapture
 - **Offline-mode UUIDs**: If `profile_id` not in `LoginHelloC2s`, server derives UUID via MD5(`OfflinePlayer:<username>`) per `src/minecraft/identity.rs`
 - **VLESS target parsing**: IPv6 requires brackets (`[::1]:443`), domains must be ASCII (`src/vless/types.rs:130-145`)
 - **Protocol version**: Hardcoded to `valence_protocol::PROTOCOL_VERSION` (763 for 1.20.1) but configurable via `--protocol-version`
+- **Whitelist**: The whitelist is default-deny. If no whitelist is provided, all incoming Minecraft login attempts are rejected.
 
 ## Missing/Recommended Infrastructure
 
