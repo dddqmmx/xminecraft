@@ -63,14 +63,13 @@ impl Whitelist {
     }
 
     pub fn allows(&self, username: &str, uuid: &Uuid) -> bool {
-        !self.is_enabled()
-            || self.entries.iter().any(|entry| {
-                entry
-                    .name
-                    .as_deref()
-                    .is_some_and(|name| name.eq_ignore_ascii_case(username))
-                    || entry.uuid.as_ref().is_some_and(|allowed| allowed == uuid)
-            })
+        self.entries.iter().any(|entry| {
+            entry
+                .name
+                .as_deref()
+                .is_some_and(|name| name.eq_ignore_ascii_case(username))
+                || entry.uuid.as_ref().is_some_and(|allowed| allowed == uuid)
+        })
     }
 
     pub fn len(&self) -> usize {
@@ -117,11 +116,11 @@ mod tests {
     use super::*;
 
     #[test]
-    fn empty_whitelist_allows_everyone() {
+    fn empty_whitelist_rejects_everyone() {
         let whitelist = Whitelist::default();
         let uuid = parse_uuid("b50ad385-829d-3141-a216-7e7d7539ba7f").unwrap();
 
-        assert!(whitelist.allows("Notch", &uuid));
+        assert!(!whitelist.allows("Notch", &uuid));
     }
 
     #[test]

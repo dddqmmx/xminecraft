@@ -25,7 +25,7 @@ fn test_profile() -> ServerProfile {
         enforce_secure_chat: false,
         view_distance: 10,
         simulation_distance: 10,
-        whitelist: Whitelist::default(),
+        whitelist: Whitelist::from_cli(vec!["xminecraft".to_owned()], vec![]).unwrap(),
         whitelist_message: "You are not whitelisted on this server.".to_owned(),
         brand: "xminecraft".to_owned(),
         entity_id: 1,
@@ -173,5 +173,5 @@ async fn accept_session_rejects_negative_packet_length() {
 fn server_profile_has_reasonable_defaults() {
     let profile = test_profile();
     assert_eq!(profile.max_players, 20);
-    assert!(!profile.whitelist.is_enabled());
+    assert!(profile.whitelist.is_enabled());
 }

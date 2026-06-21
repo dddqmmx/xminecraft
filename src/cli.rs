@@ -192,7 +192,9 @@ pub async fn run() -> Result<()> {
             spawn_y,
         } => {
             let whitelist = load_whitelist(whitelist_file, whitelist_users, whitelist_uuids)?;
-            if whitelist.is_enabled() {
+            if whitelist.is_empty() {
+                tracing::warn!("Minecraft whitelist is empty. All incoming connections will be rejected.");
+            } else {
                 info!(entries = whitelist.len(), "Minecraft whitelist enabled");
             }
 
