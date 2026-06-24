@@ -9,6 +9,15 @@
 
 The project uses `valence_protocol` for Minecraft VarInt and packet field encoding/decoding. It acts as a pair of cooperating endpoints.
 
+## Design Philosophy
+
+The core design philosophy of `xminecraft` revolves around traffic camouflage and evasion:
+
+- **Camouflage over Encryption:** The primary purpose of the native Minecraft `AES-128-CFB8` stream is *not* encryption, but rather **obfuscation and camouflage**. Its goal is to make the tunnel's traffic completely indistinguishable from legitimate Minecraft protocol traffic.
+- **No Redundant Encryption:** This is not a case of redundant double encryption. The actual responsibility of securing and encrypting the payload content is delegated entirely to the inner **TLS 1.3** layer.
+- **High DPI Cost:** For Deep Packet Inspection (DPI) systems, the computational cost to actively attack and attempt to decrypt the Minecraft `AES-128-CFB8` stream is extremely high.
+- **Unpredictability:** A significant advantage of mimicking Minecraft is the inherent unpredictability of its network packet payloads. Because of the vast ecosystem of Minecraft mods, DPI systems cannot easily rely on strict packet size or content pattern matching, as modded traffic naturally exhibits high variance.
+
 ## Topology
 
 ```text
